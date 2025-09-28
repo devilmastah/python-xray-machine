@@ -3,6 +3,9 @@ from PyQt5.QtCore import QThread
 import serial.tools.list_ports
 from datetime import datetime
 import os
+from serial_thread import SerialThread
+import serial
+
 
 class CTScanThread(QThread):
     def __init__(self, parent, steps):
@@ -110,4 +113,3 @@ class CTScanOptionsWindow(QMainWindow):
         self.ct_scan_thread = CTScanThread(self, steps)
         self.ct_scan_thread.start()
         QMessageBox.information(self, "CT Scan", "CT scan started.")
-
